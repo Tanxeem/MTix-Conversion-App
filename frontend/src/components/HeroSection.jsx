@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useRef } from 'react';
 import { FaFilePdf, FaImage, FaExchangeAlt, FaArrowRight } from 'react-icons/fa';
 import { motion, useAnimation, useInView } from 'framer-motion';

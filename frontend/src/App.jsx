@@ -1,14 +1,19 @@
-import AboutSection from "./components/AboutSection"
-import HeroSection from "./components/HeroSection"
 import Navbar from "./components/Navbar"
+import {Routes, Route} from 'react-router'
+import Home from "../src/pages/Home"
+import Login from "../src/pages/Login";
+import Footer from "./components/Footer";
 
 function App() {
 
   return (
     <>
       <Navbar />
-      <HeroSection />
-      <AboutSection />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
+      <Footer />
     </>
   )
 }

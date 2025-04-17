@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { FaFilePdf, FaImage, FaExchangeAlt, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import mtpix from '../assets/mtix.png'
+import { useNavigate } from 'react-router';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const navigate = useNavigate()
 
   const toggleDropdown = (dropdown) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
@@ -49,7 +51,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo - Left */}
 
-<div className="flex-shrink-0">
+<div className="flex-shrink-0 cursor-pointer"
+onClick={() => navigate('/')}>
   <span className="text-white text-2xl font-bold flex items-center">
     <img 
       src={mtpix} 
@@ -110,14 +113,14 @@ const Navbar = () => {
           {/* Auth Buttons - Right */}
           <div className="hidden md:flex md:items-center space-x-2">
             <a
-              href="#"
-              className="text-white hover:bg-blue-800 px-3 py-2 rounded-md text-sm font-medium"
+              onClick={() => navigate('/login', { state: { mode: 'login' } })}
+              className="text-white hover:bg-blue-800 px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition duration-300"
             >
               Login
             </a>
             <a
-              href="#"
-              className="bg-white text-blue-700 hover:bg-gray-100 px-4 py-2 rounded-md text-sm font-medium shadow-sm transition duration-300"
+              onClick={() => navigate('/login', { state: { mode: 'signup' } })}
+              className="bg-white text-blue-700 hover:bg-gray-100 px-4 py-2 rounded-md text-sm font-medium shadow-sm transition duration-300 cursor-pointer"
             >
               Sign Up
             </a>
@@ -160,13 +163,13 @@ const Navbar = () => {
 
             <div className="pt-2 border-t border-blue-600">
               <a
-                href="#"
+                onClick={() => navigate('/login', { state: { mode: 'login' } })}
                 className="block px-3 py-2 text-sm text-white hover:bg-blue-800 rounded-md"
               >
                 Login
               </a>
               <a
-                href="#"
+                onClick={() => navigate('/login', { state: { mode: 'signup' } })}
                 className="block px-3 py-2 mt-1 text-sm bg-white text-blue-700 rounded-md font-medium text-center"
               >
                 Sign Up

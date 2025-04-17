@@ -1,13 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaUser, FaLock, FaEnvelope, FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
+import { useLocation } from 'react-router';
 
-const Signup = () => {
+const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const location = useLocation()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     name: ''
   });
+
+  useEffect( () => {
+    if(location.state?.mode === 'signup'){
+      setIsLogin(false)
+    }else {
+      setIsLogin(true)
+    }
+  },[location.state])
 
   const handleChange = (e) => {
     setFormData({
@@ -170,4 +180,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
