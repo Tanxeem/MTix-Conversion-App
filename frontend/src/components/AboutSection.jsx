@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaFilePdf, FaImage, FaExchangeAlt } from 'react-icons/fa';
+import PDFToolsSection from './PdfToolsSection';
+import ImageToolsSection from './ImageToolsSection';
 
 function AboutSection() {
     return (
@@ -14,40 +16,8 @@ function AboutSection() {
               </p>
             </div>
     
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 p-6 rounded-xl hover:shadow-md transition duration-300">
-                <div className="bg-cyan-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <FaFilePdf className="text-cyan-600 text-xl" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">PDF Tools</h3>
-                <p className="text-gray-600">
-                  Merge, split, compress, and convert PDF files with our powerful processing tools. 
-                  Maintain quality while reducing file sizes.
-                </p>
-              </div>
-    
-              <div className="bg-gray-50 p-6 rounded-xl hover:shadow-md transition duration-300">
-                <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <FaImage className="text-blue-600 text-xl" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Image Processing</h3>
-                <p className="text-gray-600">
-                  Resize, crop, convert, and optimize images for web or print. 
-                  Supports all major formats including JPG, PNG, SVG, and more.
-                </p>
-              </div>
-    
-              <div className="bg-gray-50 p-6 rounded-xl hover:shadow-md transition duration-300">
-                <div className="bg-indigo-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <FaExchangeAlt className="text-indigo-600 text-xl" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">File Conversion</h3>
-                <p className="text-gray-600">
-                  Convert between document, image, audio, and video formats. 
-                  Office documents, ebooks, media files - we handle them all.
-                </p>
-              </div>
-            </div>
+            <PDFToolsSection />
+            <ImageToolsSection />
     
             <div className="mt-16 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-xl p-8 text-white">
               <div className="max-w-4xl mx-auto text-center">

@@ -2,11 +2,13 @@
 import { useEffect, useRef } from 'react';
 import { FaFilePdf, FaImage, FaExchangeAlt, FaArrowRight } from 'react-icons/fa';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import { useNavigate } from 'react-router';
 
 const HeroSection = () => {
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isInView) {
@@ -68,10 +70,14 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <button className="bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 flex items-center">
+              <button
+              onClick={() => navigate('/login', { state: { mode: 'signup' } })} 
+              className="bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 flex items-center">
                 Get Started <FaArrowRight className="ml-2" />
               </button>
-              <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-3 px-6 rounded-lg transition duration-300">
+              <button
+              onClick={() => navigate("/learnmore")} 
+              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-3 px-6 rounded-lg transition duration-300">
                 Learn More
               </button>
             </motion.div>
