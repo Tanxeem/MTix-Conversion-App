@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router';
 import { 
   FaCompressAlt, 
   FaExchangeAlt, 
@@ -122,27 +123,28 @@ const ImageToolsSection = () => {
             const bgColorClass = `bg-${tool.categoryColor}-50`;
 
             return (
-              <motion.a
+                <motion.div
                 key={index}
-                href={tool.href}
                 variants={itemVariants}
                 whileHover="hover"
                 className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-200 transition-colors duration-300 shadow-sm"
               >
-                <div className="flex items-start mb-4">
-                  <div className={`${bgColorClass} p-3 rounded-lg mr-3`}>
-                    <IconComponent className={`${colorClass} text-lg`} />
+                <Link to={tool.href} className="block h-full w-full" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                  <div className="flex items-start mb-4">
+                    <div className={`${bgColorClass} p-3 rounded-lg mr-3`}>
+                      <IconComponent className={`${colorClass} text-lg`} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      {tool.name}
+                    </h3>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {tool.name}
-                  </h3>
-                </div>
-                <p className="text-gray-600 text-sm mb-5">{tool.description}</p>
-                <div className="flex items-center text-blue-500 hover:text-blue-700 transition-colors duration-300">
-                  <span className="text-sm font-medium">Use Tool</span>
-                  <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-              </motion.a>
+                  <p className="text-gray-600 text-sm mb-5">{tool.description}</p>
+                  <div className="flex items-center text-blue-500 hover:text-blue-700 transition-colors duration-300">
+                    <span className="text-sm font-medium">Use Tool</span>
+                    <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              </motion.div>
             );
           })}
         </div>

@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
+import {Link} from 'react-router'
 import React from 'react';
 import { 
   FaFilePdf, 
@@ -226,13 +227,13 @@ const PDFToolsSection = () => {
               }
   
               return (
-                <motion.a
+                <motion.div
                   key={index}
-                  href={tool.href}
                   variants={itemVariants}
                   whileHover="hover"
                   className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-200 transition-colors duration-300 shadow-sm"
                 >
+                  <Link to={tool.href} className="block h-full w-full" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                   <div className="flex items-start mb-4">
                     <div className={`${colorClass.replace('text', 'bg')}-50 p-3 rounded-lg mr-3`}>
                       {React.cloneElement(tool.icon, { className: `${colorClass} text-lg` })}
@@ -246,7 +247,8 @@ const PDFToolsSection = () => {
                     <span className="text-sm font-medium">Use Tool</span>
                     <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
-                </motion.a>
+                  </Link>
+                </motion.div>
               );
             })}
           </div>
