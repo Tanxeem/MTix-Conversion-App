@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaFilePdf, FaImage, FaExchangeAlt, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import mtpix from '../assets/mtix.png'
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -112,18 +113,16 @@ onClick={() => navigate('/')}>
 
           {/* Auth Buttons - Right */}
           <div className="hidden md:flex md:items-center space-x-2">
-            <a
-              onClick={() => navigate('/login', { state: { mode: 'login' } })}
+            <Link to="/login"
               className="text-white hover:bg-blue-800 px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition duration-300"
             >
               Login
-            </a>
-            <a
-              onClick={() => navigate('/login', { state: { mode: 'signup' } })}
+            </Link>
+            <Link to="/signup"
               className="bg-white text-blue-700 hover:bg-gray-100 px-4 py-2 rounded-md text-sm font-medium shadow-sm transition duration-300 cursor-pointer"
             >
               Sign Up
-            </a>
+            </Link>
           </div>
         </div>
       </div>
